@@ -124,7 +124,7 @@ tm_steps = C(tm_steps_r, Proj(3,2), Proj(3,0), Proj(3,1))
 
 ### THE FUNCTIONS BELOW ARE NOT PRIMITIVE RECURSIVE BUT ONLY PARTIAL μ-RECURSIVE ###
 
-tm_conf_steps_to_finish = Minimize(C(tm_conf_is_final, Proj(3,1), C(tm_steps, Proj(3,1), Proj(3,2), Proj(3,0))))
+tm_conf_steps_to_finish = Minimize(C(not_, C(tm_conf_is_final, Proj(3,1), C(tm_steps, Proj(3,1), Proj(3,2), Proj(3,0)))))
 # machine, conf -> final_conf
 tm_conf_finish = C(tm_steps, Proj(2,0), Proj(2,1), tm_conf_steps_to_finish)
 # machine, input -> final_conf

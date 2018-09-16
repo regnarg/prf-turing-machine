@@ -65,7 +65,7 @@ def Minimize(predicate):
     assert predicate._is_prf
     def f(*args):
         for i in itertools.count():
-            if predicate(i, *args):
+            if predicate(i, *args) == 0:
                 return i
     f._is_prf = True
     f._arity = predicate._arity - 1
